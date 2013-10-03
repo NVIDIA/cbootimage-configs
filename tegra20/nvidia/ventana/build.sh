@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2012, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,10 +18,4 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-set -e
-set -x
-
-cbootimage -gbct \
-    ventana_A03_12MHz_EDB8132B1PB6DF_300Mhz_1GB_emmc_THGBM1G6D4EBAI4.bct.cfg \
-    ventana_A03_12MHz_EDB8132B1PB6DF_300Mhz_1GB_emmc_THGBM1G6D4EBAI4.bct
-cbootimage ventana-emmc.img.cfg ventana-emmc.img
+make

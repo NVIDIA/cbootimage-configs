@@ -1,5 +1,4 @@
-#!/bin/sh
-
+# Copyright (c) 2013, Lucas Stach
 # Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
@@ -18,4 +17,24 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-make
+include ../../../build/pre.mk
+
+soc := t20
+
+bcts := \
+	colibri-t20_256_hsmmc.bct \
+	colibri-t20_512_hsmmc.bct \
+	colibri-t20_256_v11_nand.bct \
+	colibri-t20_256_v12_nand.bct \
+	colibri-t20_512_v11_nand.bct \
+	colibri-t20_512_v12_nand.bct
+
+images := \
+	colibri-t20_256_hsmmc.img \
+	colibri-t20_512_hsmmc.img \
+	colibri-t20_256_v11_nand.img \
+	colibri-t20_256_v12_nand.img \
+	colibri-t20_512_v11_nand.img \
+	colibri-t20_512_v12_nand.img
+
+include ../../../build/post.mk

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2013 Avionic Design GmbH
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,10 +18,4 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-set -e
-set -x
-
-cbootimage -t30 -gbct \
-    ../tamonten-ng/TamontenNG_Nanya_1GB_NT5CC256M16CP-DI_750MHz_emmc.bct.cfg \
-    TamontenNG_Nanya_1GB_NT5CC256M16CP-DI_750MHz_emmc.bct
-cbootimage -t30 ../tamonten-ng/tegra30.img.cfg tegra30-tec-ng.img
+make

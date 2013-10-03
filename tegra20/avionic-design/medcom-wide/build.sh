@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (C) 2013 Avionic Design GmbH
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,10 +18,4 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-set -e
-set -x
-
-cbootimage -t20 -gbct \
-	../tamonten/Tamonten_T2_512MB_MEM2G16D2D-ABG-25_366MHz.bct.cfg \
-	Tamonten_T2_512MB_MEM2G16D2D-ABG-25_366MHz.bct
-cbootimage -t20 ../tamonten/tegra20.img.cfg tegra20-medcom-wide.img
+make

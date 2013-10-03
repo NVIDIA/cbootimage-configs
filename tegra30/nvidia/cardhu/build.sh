@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2012, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,20 +18,4 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-set -e
-set -x
-
-cbootimage -t30 -gbct \
-    E1186_Hynix_1GB_H5TC2G83BFR-PBA_375MHz_111114_317_sdmmc4_x8.bct.cfg \
-    E1186_Hynix_1GB_H5TC2G83BFR-PBA_375MHz_111114_317_sdmmc4_x8.bct
-cbootimage -t30 cardhu-a02-a04-1gb-emmc.img.cfg cardhu-a02-a04-1gb-emmc.img
-
-cbootimage -t30 -gbct \
-    E1198_Hynix_2GB_H5TC2G83BFR-PBA_667MHz_111121_317_sdmmc4_x8.bct.cfg \
-    E1198_Hynix_2GB_H5TC2G83BFR-PBA_667MHz_111121_317_sdmmc4_x8.bct
-cbootimage -t30 cardhu-a02-a04-2gb-emmc.img.cfg cardhu-a02-a04-2gb-emmc.img
-
-cbootimage -t30 -gbct \
-    E1198_Hynix_2GB_H5TC4G83MFR-PBA_375MHz_111122_317_sdmmc4_x8.bct.cfg \
-    E1198_Hynix_2GB_H5TC4G83MFR-PBA_375MHz_111122_317_sdmmc4_x8.bct
-cbootimage -t30 cardhu-a05-2gb-emmc.img.cfg cardhu-a05-2gb-emmc.img
+make

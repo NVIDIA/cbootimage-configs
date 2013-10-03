@@ -1,6 +1,4 @@
-#!/bin/sh
-
-# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2012-2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,4 +16,14 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-make
+include ../../../build/pre.mk
+
+soc := t20
+
+bcts := \
+	PM282_Hynix_1GB_H5PS2G83AFR-S6C_380MHz_nand.bct
+
+images := \
+	seaboard-nand.img
+
+include ../../../build/post.mk

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
@@ -18,4 +18,17 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-make
+img_cfg_file=$1
+img_file=$2
+dep_file=$3
+
+rm -f ${dep_file}
+bct=`grep -i bctfile ${img_cfg_file} | sed -e 's/^.*=//' -e s'/[,;].*$//'`
+bootloader=`grep -i bootloader ${img_cfg_file} | sed -e 's/^.*=//' -e s'/[,;].*$//'`
+
+cat > ${dep_file} <<ENDOFHERE
+${img_file}: \\
+	${img_cfg_file} \\
+	${bct} \\
+	${bootloader}
+ENDOFHERE

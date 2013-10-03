@@ -1,5 +1,4 @@
-#!/bin/sh
-
+# Copyright (C) 2013 Avionic Design GmbH
 # Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
@@ -18,4 +17,14 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-make
+include ../../../build/pre.mk
+
+soc := t20
+
+bcts := \
+	Tamonten_T2_512MB_MEM2G16D2D-ABG-25_366MHz.bct
+
+images := \
+	tegra20-tec.img
+
+include ../../../build/post.mk

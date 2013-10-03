@@ -18,10 +18,4 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-set -e
-set -x
-
-cbootimage -t124 -gbct \
-    PM371_Hynix_2GB_H5TC4G63AFR_RDA_792MHz_0719.bct.cfg \
-    PM371_Hynix_2GB_H5TC4G63AFR_RDA_792MHz_0719.bct
-cbootimage -t124 venice2-spi.img.cfg venice2-spi.img
+make

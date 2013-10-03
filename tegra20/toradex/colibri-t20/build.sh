@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2013, Lucas Stach
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,24 +18,4 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-set -e
-set -x
-
-cbootimage -gbct colibri-t20_256_hsmmc.bct.cfg colibri-t20_256_hsmmc.bct
-cbootimage colibri-t20_256_hsmmc.img.cfg colibri-t20_256_hsmmc.img
-
-cbootimage -gbct colibri-t20_512_hsmmc.bct.cfg colibri-t20_512_hsmmc.bct
-cbootimage colibri-t20_512_hsmmc.img.cfg colibri-t20_512_hsmmc.img
-
-cbootimage -gbct colibri-t20_256_v11_nand.bct.cfg colibri-t20_256_v11_nand.bct
-cbootimage colibri-t20_256_v11_nand.img.cfg colibri-t20_256_v11_nand.img
-
-cbootimage -gbct colibri-t20_256_v12_nand.bct.cfg colibri-t20_256_v12_nand.bct
-cbootimage colibri-t20_256_v12_nand.img.cfg colibri-t20_256_v12_nand.img
-
-cbootimage -gbct colibri-t20_512_v11_nand.bct.cfg colibri-t20_512_v11_nand.bct
-cbootimage colibri-t20_512_v11_nand.img.cfg colibri-t20_512_v11_nand.img
-
-cbootimage -gbct colibri-t20_512_v12_nand.bct.cfg colibri-t20_512_v12_nand.bct
-cbootimage colibri-t20_512_v12_nand.img.cfg colibri-t20_512_v12_nand.img
-
+make

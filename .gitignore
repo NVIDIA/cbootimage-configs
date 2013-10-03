@@ -1,3 +1,5 @@
+.*.d
+.*.swp
 *.bct
 *.img
 u-boot.bin

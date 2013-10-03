@@ -1,6 +1,6 @@
 #!/bin/sh
 
-# Copyright (c) 2012, NVIDIA CORPORATION.  All rights reserved.
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -18,11 +18,4 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-set -e
-set -x
-
-cbootimage -gbct trimslice-mmc.bct.cfg trimslice-mmc.bct
-cbootimage trimslice-mmc.img.cfg trimslice-mmc.img
-
-cbootimage -gbct trimslice-spi.bct.cfg trimslice-spi.bct
-cbootimage trimslice-spi.img.cfg trimslice-spi.img
+make

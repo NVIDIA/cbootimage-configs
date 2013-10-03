@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
@@ -18,4 +16,18 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-make
+include ../../../build/pre.mk
+
+soc := t114
+
+bcts := \
+	E1611_Hynix_2GB_H5TC4G63AFR-RDA_792MHz_r403_v03.bct \
+	E1611_Hynix_2GB_H5TC4G63AFR-RDA_792Mhz_r403_v2.bct \
+	E1611_Hynix_2GB_H5TC4G63MFR-PBA_792Mhz_r403_v05.bct
+
+images := \
+	dalmore-t40x-1866.img \
+	dalmore-t40s-1866.img \
+	dalmore-t40s-1600.img
+
+include ../../../build/post.mk

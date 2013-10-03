@@ -1,5 +1,3 @@
-#!/bin/sh
-
 # Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
@@ -18,4 +16,14 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-make
+include ../../../build/pre.mk
+
+soc := t124
+
+bcts := \
+	PM371_Hynix_2GB_H5TC4G63AFR_RDA_792MHz_0719.bct
+
+images := \
+	venice2-spi.img
+
+include ../../../build/post.mk
