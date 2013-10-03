@@ -15,33 +15,46 @@ using the following process:
 
 Extract the BCT from the existing device. Various methods exist to do this:
 
+1a)
+
+Recent versions of tegrarcm now have the capability to read the BCT from the
+device without requiring any HW-specific binaries, nor code already installed
+on the device:
+
+    tegrarcm --bct board.bct readbct
+
+1b)
+
 If you have access to Linux running on the device already, then you can use
 dump the memory device directly:
 
-# For devices which boot from eMMC:
-dd if=/dev/mmcblk0boot1 of=bct.bin bs=65536 count=1
+For devices which boot from eMMC:
 
-# For devices which boot from SPI:
-dd if=/dev/mtd0ro of=bct.bin bs=65536 count=1
+    dd if=/dev/mmcblk0boot0 of=bct.bin bs=65536 count=1
+
+For devices which boot from SPI:
+
+    dd if=/dev/mtd0ro of=bct.bin bs=65536 count=1
+
+1c)
 
 If you have a working nvflash for your device, then this can also extract the
 BCT:
 
-nvflash --bl fastboot.bin --getbct --bct board.bct
+    nvflash --bl fastboot.bin --getbct --bct board.bct
 
 If that doesn't work, you could try reading the content of the BCT partition
 or the start of the raw device, then extracting the BCT:
 
-nvflash --bl fastboot.bin --read 2 board.bct
+    nvflash --bl fastboot.bin --read 2 board.bct
 
 or:
 
-nvflash --bl fastboot.bin --rawdeviceread 0 128 board.bct
+    nvflash --bl fastboot.bin --rawdeviceread 0 128 board.bct
 
-Note that all of the above commands, except the nvflash --getbct command,
-extract many more bytes of data that is strictly required. However, this
-avoids updating these instructions for each new chip; Tegra20's BCT is just
-under 4KiB, Tegra30's around 6KiB, etc.
+Note that some of the above commands extract many more bytes of data that is
+strictly required. However, this avoids updating these instructions for each
+new chip; Tegra20's BCT is just under 4KiB, Tegra30's around 6KiB, etc.
 
 2)
 
