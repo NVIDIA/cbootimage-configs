@@ -18,17 +18,25 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
+deps_script=$0
 img_cfg_file=$1
 img_file=$2
 dep_file=$3
 
 rm -f ${dep_file}
-bct=`grep -i bctfile ${img_cfg_file} | sed -e 's/^.*=//' -e s'/[,;].*$//'`
-bootloader=`grep -i bootloader ${img_cfg_file} | sed -e 's/^.*=//' -e s'/[,;].*$//'`
+bct=`grep -i bctfile ${img_cfg_file} | sed -e 's/^.*=\s*//' -e s'/[,;].*$//'`
+bootloader=`grep -i bootloader ${img_cfg_file} | sed -e 's/^.*=\s*//' -e s'/[,;].*$//'`
 
 cat > ${dep_file} <<ENDOFHERE
 ${img_file}: \\
+	${deps_script} \\
 	${img_cfg_file} \\
 	${bct} \\
 	${bootloader}
+
+${img_cfg_file}:
+
+${bct}:
+
+${bootloader}:
 ENDOFHERE
