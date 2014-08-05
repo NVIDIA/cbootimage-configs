@@ -1,4 +1,5 @@
-# Copyright (C) 2013 Toradex AG
+# Copyright (c) 2013, Toradex AG. All rights reserved.
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -16,7 +17,14 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-Version       = 0x00020001;
-Bctcopy       = 1;
-Bctfile       = Colibri_t30_12MHz_1GB_NT5CC256M16CP-DI_400MHz-shmoo.bct;
-BootLoader    = u-boot.bin,0x80108000,0x80108000,Complete;
+include ../../../build/pre.mk
+
+soc := t30
+
+bcts := \
+	colibri_t30_12MHz_1GB_NT5CC256M16CP-DI_400MHz-shmoo.bct
+
+images := \
+	colibri_t30.img
+
+include ../../../build/post.mk
