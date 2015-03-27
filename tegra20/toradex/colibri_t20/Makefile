@@ -1,4 +1,5 @@
 # Copyright (c) 2013, Lucas Stach
+# Copyright (c) 2013, NVIDIA CORPORATION.  All rights reserved.
 #
 # This software is provided 'as-is', without any express or implied
 # warranty. In no event will the authors be held liable for any damages
@@ -16,7 +17,24 @@
 #    misrepresented as being the original software.
 # 3. This notice may not be removed or altered from any source distribution.
 
-Version       = 0x00020001;
-Bctcopy       = 1;
-Bctfile       = colibri-t20_256_hsmmc.bct;
-BootLoader    = u-boot.bin,0x00108000,0x00108000,Complete;
+include ../../../build/pre.mk
+
+soc := t20
+
+bcts := \
+	colibri_t20-256-hsmmc.bct \
+	colibri_t20-512-hsmmc.bct \
+	colibri_t20-256-v11-nand.bct \
+	colibri_t20-256-v12-nand.bct \
+	colibri_t20-512-v11-nand.bct \
+	colibri_t20-512-v12-nand.bct
+
+images := \
+	colibri_t20-256-hsmmc.img \
+	colibri_t20-512-hsmmc.img \
+	colibri_t20-256-v11-nand.img \
+	colibri_t20-256-v12-nand.img \
+	colibri_t20-512-v11-nand.img \
+	colibri_t20-512-v12-nand.img
+
+include ../../../build/post.mk
