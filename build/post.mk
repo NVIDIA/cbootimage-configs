@@ -21,11 +21,12 @@ bcts: $(bcts)
 images: $(images)
 
 image_deps := $(addprefix .,$(addsuffix .d,$(images)))
+$(image_deps): .%.d : %.cfg
+	../../../build/gen-image-deps.sh $< $(@:.%.d=%) $@
 -include $(image_deps)
 
 %.bct: %.bct.cfg
 	cbootimage -gbct -$(soc) $< $@
 
 %.img: %.img.cfg
-	../../../build/gen-image-deps.sh $< $@ .$@.d
 	cbootimage -$(soc) $< $@
